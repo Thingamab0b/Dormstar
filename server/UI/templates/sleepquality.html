@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.js"></script>
+    <!--<script src='../static/js/sleeper.js'></script>-->
+    <style>
+        #canvas-holder{
+				width:30%;
+				margin:0 auto;};
+
+        #quality-cycle{
+            z-index: 1;
+        }
+
+        #percent{
+            z-index: 0;
+        }
+
+        .table table-inverse
+        {
+            table-layout: fixed;
+        }
+    </style>
+    
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/sleeper.css')}}">
+  </head>
+
+<body>
+    <main class="container">
+        <nav aria-label="...">
+            <ul class="pager">
+              <li class="previous" ><a href="/sleepCycle" color="#fff" style="background-color:grey"><span aria-hidden="true">&larr;</span> Sleep Cycle </a></li>
+              <li class="next" ><a href="/heartRate" color="#fff" style="background-color:grey"><span aria-hidden="true">&rarr;</span> Heart Rate </a></li>
+            </ul>
+        </nav>
+
+        
+        <div class="row">
+            <div class="col-lg-12" style="background-color: #1c1c1e;">
+                <div id="canvas-holder">
+                <canvas id="quality-cycle" width="500" height="500"></canvas>
+                </div>
+
+                <h4>Sleep Quality</h4>
+                <div class="table-responsive" margin="0 auto" width="100px">
+                  <table class="table table-inverse " >
+                    <tbody>
+                      <tr>
+                        <td><span class="glyphicon glyphicon-time"></span>入睡时间</td>
+                        <td>23时01分</td>
+                        <td style="color:grey">参考值：不晚于00:00</td>
+                        <td><button type="button" class="btn btn-xs" style="background-color:green ">合适</button></td>
+                      </tr>
+
+                    <tr>
+                      <td><span class="glyphicon glyphicon-play-circle"></span>睡眠时长</td>
+                      <td>7小时42分</td>
+                      <td style="color:grey">参考值：6-10小时</td>
+                      <td><button type="button" class="btn btn-xs" style="background-color:green ">合适</button></td>
+                    </tr>
+
+                    <tr>
+                      <td><span class="glyphicon glyphicon-headphones"></span>入睡时长</td>
+                      <td>7小时42分</td>
+                      <td style="color:grey">参考值：小于30分</td>
+                      <td><button type="button" class="btn btn-xs" style="background-color:green ">合适</button></td>
+                    </tr>
+
+                    <tr>
+                        <td><span class="glyphicon glyphicon-adjust"></span>深睡时长</td>
+                        <td>1小时50分</td>
+                        <td style="color:grey">参考值：大于1小时</td>
+                        <td><button type="button" class="btn btn-xs" style="background-color:green ">合适</button></td>
+                      </tr>
+
+                     
+                      <tr>
+                        <td><span class="glyphicon glyphicon-magnet"></span>浅睡比例</td>
+                        <td>76%（5小时52分）</td>
+                        <td style="color:grey">参考值：小于55%</td>
+                        <td><button type="button" class="btn btn-xs" style="background-color:cornflowerblue ">略多</button></td>
+                      </tr>
+
+                      <tr>
+                        <td><span class="glyphicon glyphicon-hdd"></span>翻身次数</td>
+                        <td>9次</td>
+                        <td style="color:grey">参考值：小于20次</td>
+                        <td><button type="button" class="btn btn-xs" style="background-color:green ">合适</button></td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+    
+
+            </div>
+
+
+        </div>
+    </main>
+
+</body>
+<script>
+    var doughnut_data = [120,300];
+    var doughnut_ctx = document.getElementById("quality-cycle").getContext("2d");
+    var doughnut_char=new Chart(doughnut_ctx,{
+        type:'doughnut',
+        
+        data: {
+            datasets: [
+                {
+                   data: doughnut_data,
+                   backgroundColor: ["#4D5360","#005c5b"]
+                }]
+            },
+
+        options: {
+            events: [''],
+            cutout:120,
+            animation: {
+            onComplete: function () {
+            
+            doughnut_ctx.font = "normal 50px sans-serif";
+            doughnut_ctx.fillStyle='#ffffff';
+            doughnut_ctx.fillText("07", 95, 170);
+            doughnut_ctx.fillText("42", 185, 170);
+            doughnut_ctx.font = "normal 30px sans-serif";
+            doughnut_ctx.fillText("h", 160, 180);
+            doughnut_ctx.font = "normal 20px sans-serif";
+            doughnut_ctx.fillText("质量76%", 130, 230);
+            
+
+            
+            }
+            }
+        }
+    
+});
+    
+function drawText()
+{
+    
+}
+    
+</script>
+</html>

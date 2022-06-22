@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewpoint" content="width=device-width, inital-scale=1">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/homepage.css')}}">
+    <!--<link rel="stylesheet" type="text/css" href="../static/css/homepage.css">-->
+    <!--<script src="../static/js/homepage.js"></script>-->
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='js/homepage.js')}}"></script>
+  <style>
+      #time
+{ 
+    font-size: 80px;
+    font-family: "courier-new";
+    color:#fff; 
+    position:relative;
+    top:60px;
+    left:250px;
+}
+      #settings
+{
+    position:relative;
+    top:150px;
+    left:200px;
+    width:250px;
+    height:250px;
+}
+
+#sleeper
+{
+    position:relative;
+    top:150px;
+    left:250px;
+    width:250px;
+    height:250px;
+}
+
+#connecting
+{
+    position:relative;
+    top:150px;
+    left:300px;
+    width:250px;
+    height:250px;
+}
+  </style>
+</head>
+
+<body>
+    <div id='time'>&nbsp;</div>
+    <div>
+        <a href="/settings" target="_top"><img id='settings' src="{{ url_for('static', filename='img/settings.png')}} " ></a>
+        <a href="/sleepTime" target="_top"><img id='sleeper' src="{{ url_for('static', filename='img/sleeper.png')}} " ></a>
+        <a href="/connecting" target="_top"><img id='connecting' src="{{ url_for('static', filename='img/connecting.png')}} " ></a>
+    </div>
+
+
+</body>
+
+</html>

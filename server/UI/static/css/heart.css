@@ -1,0 +1,74 @@
+.heart-wave {
+animation: waveFade .6s ease forwards;
+background-color: #000000;
+position: relative;
+top: 20%;
+opacity: 0;
+height: 100px;
+width: 100px;
+z-index: 99; }
+
+.icon {
+max-width: 400px;
+position: absolute;
+left: 50%;
+top: 50%;
+transform: translate3d(-50%, -50%, 0);
+width: 100%;}
+
+#mask_1 { fill: #000000; }
+#heart-color-wave {fill: none; }
+#heart-fill-white {	fill: #ef4136}
+
+
+
+
+.box-wave {
+    background-color: #e95464;
+top: 50%;
+transform: translate3d(-50%, calc(-50% + 7px), 0);
+left: 50%;
+overflow: hidden;
+position: absolute;
+z-index: -1;
+    height: 114px;
+    width: 140px;}
+
+
+.wave {
+animation: drift 3s infinite linear, upDown 20s infinite linear;
+background-color: #f3715f;
+border-radius: 43%;
+transform-origin: 50% 48%;
+transition: all 1s ease-in-out;
+opacity: .8;
+position: absolute;
+left: 0;
+height: 150px;
+width: 150px;
+will-change: bottom, transform;
+}
+
+.wave.left { left: -30%; }
+.wave.right { left: 30%; }
+.wave.three { animation: drift 5s infinite linear, upDown 20s infinite linear; }
+
+	
+
+	
+@keyframes waveFade {
+	to { opacity: 1; }
+}
+@keyframes waveFadeOff {
+	to { opacity: 0; }
+}
+
+@keyframes drift {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes upDown {
+  0%   { bottom: 0%; }
+  100% { bottom: 100%; }
+}

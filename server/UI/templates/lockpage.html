@@ -1,0 +1,25 @@
+<!-- Credit:https://www.codeply.com/p/AFSQKAkJuc-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/lockpage.css')}}">
+    <script src="{{ url_for('static', filename='js/lockpage.js')}}"></script>
+</head>
+
+
+<body>
+    <div id='time'>&nbsp;</div>
+    <div id='date'>&nbsp;</div>
+    
+    <div class='lockImg'>
+        <a  href="/homePage" target="_top">
+            <img id='lock' src="{{ url_for('static', filename='img/lock.png')}} ">
+        </a>
+    </div>
+    
+
+</body>
+
+</html>
+

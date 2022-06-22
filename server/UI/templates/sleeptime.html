@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.js"></script>
+    <!--<script src='../static/js/sleeper.js'></script>-->
+
+    
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/sleeper.css')}}">
+    <style>
+        #canvas-holder{
+				width:70%;
+				margin:0 auto;
+			}
+    </style>
+    
+  </head>
+
+<body>
+    <main class="container">
+        <nav aria-label="...">
+            <ul class="pager">
+              <li class="previous" ><a href="/homePage" color="#fff"  style="background-color:grey"><span aria-hidden="true">&larr;</span> Home </a></li>
+              <li class="next" ><a href="/sleepCycle" color="#fff" style="background-color:grey"><span aria-hidden="true">&rarr;</span> SleepCycle </a></li>
+            </ul>
+        </nav>
+
+        
+        <div class="row">
+            <div class="col-lg-12" style="background-color: #1c1c1e;">
+                <div id="canvas-holder">
+                <p>AVG TIME IN BED</p>
+                <p fontsize="40px"> 7 h 46 min </p>
+                <canvas id="sleeptime-bar" ></canvas>
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+<script>
+    var bar_label=['Mon','Tue','Wed','Thur','Fri','Sat','Sun'];
+    var bar_data = [[10,22],[8,21],[9,21.5],[8,22],[9,20],[12,23],[11,22]];
+    bar_ctx=document.getElementById("sleeptime-bar");
+    bar_char=new Chart(bar_ctx, {
+        type: 'bar',
+        data: {
+            labels:bar_label,
+            datasets: [
+                {
+                    label: '',
+                    data: bar_data,
+                    backgroundColor:'#005c5b',
+                },
+            ],
+        },
+    
+        options: {
+            scales:{  // 刻度
+                legend:{display:false,},
+                yAxes: {
+                    position: 'right',
+                    gridLines: {
+                      display: true,
+                    },
+                    reverse: true,
+                    beginAtZero: false,
+                    
+                    ticks:{
+                        font: {
+                            size: 20,},
+                    
+                    callback: function (label, index, labels) {
+                        if (label<12){hour=label+12;return hour+":00";}
+                        else {hour=label-12;return hour+":00";
+                    }
+                  }
+              }
+          
+            },
+            xAxes: {ticks:{font: {size: 20,},}},
+    
+    }}});
+</script>
+</body>
+</html>

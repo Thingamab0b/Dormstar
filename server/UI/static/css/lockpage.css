@@ -1,0 +1,45 @@
+body 
+{   
+    background-color: #000; 
+    font-family: 'Courier New', Courier, monospace;
+    border: 10%;
+}
+
+#time
+{ 
+    font-size: 100px;
+    font-family: "courier-new";
+    color:#fff; 
+    text-align: center;
+}
+
+#date
+{ 
+    font-size: 50px;
+    font-family: "courier-new";
+    color:#fff; 
+    text-align: center;
+}
+
+.lockImg
+{   
+    text-align: center;  
+}
+
+#lock
+{
+    position:relative;
+    top:250px;
+    width:80px;
+    height:80px;
+
+}
+
+.lockImg:hover
+{
+    position:relative;
+    top:250px;
+    width:90px;
+    height:90px;
+
+}

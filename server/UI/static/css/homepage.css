@@ -1,0 +1,38 @@
+body 
+{   
+    background-color: #000; 
+    font-family: 'Courier New', Courier, monospace;
+    border: 10%;
+}
+
+#time
+{ 
+    font-size: 100px;
+    font-family: "courier-new";
+    color:#fff; 
+    text-align: center;
+}
+
+#settings
+{
+    position:relative;
+    top:250px;
+    width:80px;
+    height:80px;
+}
+
+#sleeper
+{
+    position:relative;
+    top:250px;
+    width:90px;
+    height:90px;
+}
+
+#connecting
+{
+    position:relative;
+    top:250px;
+    width:90px;
+    height:90px;
+}
